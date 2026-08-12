@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Griha Pravesh | Atul & Shiwani</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif}
+body{background:radial-gradient(circle at 50% 0,#fff8df 0,#f4d494 42%,#c98235 100%);color:#5a3018;overflow:hidden}
+#intro{position:fixed;inset:0;z-index:10;background:radial-gradient(circle at 50% 35%,#fff9e9,#f2d18b 55%,#bd7130);display:flex;align-items:center;justify-content:center;text-align:center;transition:opacity 1.2s,visibility 1.2s}
+.introbox{padding:35px 25px}
+.om{font-size:70px;color:#8e481a;text-shadow:0 2px 8px #fff8}
+.introflowers{font-size:34px;letter-spacing:12px}
+.introbox h1{font-size:clamp(42px,10vw,76px);font-weight:normal;color:#793516;margin:14px 0 5px}
+.introbox p{font-size:20px;font-style:italic}
+.enter{border:1px solid #a96828;background:#8e481a;color:white;border-radius:50px;padding:15px 31px;font-size:18px;cursor:pointer;box-shadow:0 8px 25px #6c351c44;margin-top:15px}
+#intro.hide{opacity:0;visibility:hidden}
+#petals{position:fixed;inset:0;pointer-events:none;z-index:4;overflow:hidden}
+.petal{position:absolute;top:-30px;font-size:20px;animation:fall linear infinite;opacity:.85}
+@keyframes fall{to{transform:translateY(115vh) rotate(540deg)}}
+.wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;overflow:auto}
+.card{position:relative;z-index:2;width:min(790px,96vw);text-align:center;padding:42px 24px;background:#fffdf7eF;border:2px solid #c99342;border-radius:32px;box-shadow:0 25px 80px #6b3a1830;animation:cardIn 1.2s ease}
+@keyframes cardIn{from{opacity:0;transform:scale(.92) translateY(20px)}to{opacity:1;transform:none}}
+.corner{position:absolute;font-size:34px}.tl{top:14px;left:18px}.tr{top:14px;right:18px}.bl{bottom:14px;left:18px}.br{bottom:14px;right:18px}
+.orn{font-size:27px;color:#ad6920;letter-spacing:9px}.small{letter-spacing:4px;text-transform:uppercase;font-size:12px;color:#8d6747;margin:9px}
+h1{font-size:clamp(42px,9vw,72px);font-weight:normal;color:#8a3919;margin:8px 0}.sub{font-size:20px;font-style:italic;color:#765039}
+.line{width:125px;height:1px;background:#c49550;margin:20px auto}.welcome,.msg{font-size:19px;line-height:1.8}.welcome strong{color:#8a3919}
+.datebox{margin:22px auto;padding:19px;width:min(390px,92%);background:#fff6dc;border:1px solid #d0a45b;border-radius:20px}.label{font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#91663d}.date{font-size:34px;font-weight:bold;color:#873717;margin:7px}.day{font-size:17px}
+.info{display:flex;justify-content:center;margin:22px auto}.infoBox{min-width:240px;padding:16px 20px;border-radius:17px;background:#fffaf0;border:1px solid #dfbf80}.icon{font-size:25px}.infoTitle{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#91663d}.infoText{font-size:22px;color:#873717;margin-top:6px;font-weight:bold}
+.lotus{font-size:40px;margin:10px}.names{font-size:29px;color:#873717;line-height:1.5}.foot{margin-top:23px;color:#806149;line-height:1.6}
+</style>
+</head>
+<body>
+<div id="intro">
+  <div class="introbox">
+    <div class="introflowers">🌼 🪔 🌼</div>
+    <div class="om">ॐ</div>
+    <h1>You're Invited</h1>
+    <p>to celebrate a beautiful new beginning</p>
+    <button class="enter" onclick="enterInvite()">Enter Invitation ✨</button>
+  </div>
+</div>
+<div id="petals"></div>
+<div class="wrap">
+<main class="card">
+<div class="corner tl">🌼</div><div class="corner tr">🌼</div><div class="corner bl">🪔</div><div class="corner br">🪔</div>
+<div class="orn">✦ ❈ ✦</div><div class="om" style="font-size:39px">ॐ</div>
+<div class="small">With the blessings of the Almighty</div>
+<h1>Griha Pravesh</h1>
+<div class="sub">A beautiful beginning to a beautiful new chapter</div>
+<div class="line"></div>
+<div class="welcome">With hearts full of happiness and gratitude,<br><strong>we warmly welcome you to our new home.</strong></div>
+<div class="datebox"><div class="label">Please join us on</div><div class="date">19 August 2026</div><div class="day">Wednesday</div></div>
+<div class="msg">Your presence will make this auspicious occasion even more special.<br>Come, share our joy, bless our new beginning, and create beautiful memories with us.</div>
+<div class="info"><div class="infoBox"><div class="icon">🍽️</div><div class="infoTitle">Food & Refreshments</div><div class="infoText">4:00 PM onwards</div></div></div>
+<div class="lotus">🪷</div>
+<div class="names">With warmest regards,<br><strong>Atul &amp; Shiwani</strong></div>
+<div class="foot">We look forward to celebrating this special day with you and your family. ❤️<br>आपका आगमन हमारे लिए सौभाग्य और खुशी की बात होगी।</div>
+</main></div>
+<script>
+const p=document.getElementById("petals");
+for(let i=0;i<28;i++){const x=document.createElement("div");x.className="petal";x.textContent=i%3===0?"🌼":"🌸";x.style.left=Math.random()*100+"vw";x.style.animationDuration=(7+Math.random()*7)+"s";x.style.animationDelay=(-Math.random()*12)+"s";x.style.fontSize=(12+Math.random()*14)+"px";p.appendChild(x)}
+function enterInvite(){document.getElementById("intro").classList.add("hide")}
+</script>
+</body>
+</html>
