@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#7d3f5c">
+<title>A Little Dinner Date Question ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+  --wine:#813e5d;
+  --rose:#b75b7e;
+  --ink:#533b47;
+  --cream:#fff8f2;
+  --gold:#d6aa67;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; min-height:100vh; overflow-x:hidden; color:var(--ink);
+  font-family:Poppins,Arial,sans-serif;
+  background:
+   radial-gradient(circle at 8% 9%, rgba(255,221,192,.85), transparent 25%),
+   radial-gradient(circle at 94% 14%, rgba(255,190,217,.65), transparent 28%),
+   radial-gradient(circle at 50% 100%, rgba(247,218,170,.6), transparent 30%),
+   linear-gradient(135deg,#fffaf4,#fff0f6 48%,#f2f7ff);
+}
+
+#opening{
+  position:fixed; inset:0; z-index:100;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center; color:#fff;
+  background:
+   radial-gradient(circle at 50% 30%, #9a5b79 0, #4d2940 46%, #160b15 100%);
+  transition:opacity .9s ease, visibility .9s ease;
+}
+#opening.hide{opacity:0;visibility:hidden;pointer-events:none}
+.opening-box{padding:28px; animation:rise 1.2s ease}
+.opening-small{font-size:11px;letter-spacing:5px;text-transform:uppercase;opacity:.82}
+.opening-title{font:400 73px/1 "Great Vibes",cursive;margin:16px 0 2px}
+.opening-sub{font:500 24px "Playfair Display",serif}
+.enter{
+  margin-top:28px; padding:14px 32px; border-radius:999px;
+  border:1px solid rgba(255,255,255,.55);
+  background:rgba(255,255,255,.12); color:#fff; cursor:pointer;
+  backdrop-filter:blur(10px); box-shadow:0 0 35px rgba(255,200,225,.22);
+  transition:.25s;
+}
+.enter:hover{transform:scale(1.05);background:rgba(255,255,255,.2)}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+.page{min-height:100vh;padding:14px 10px 55px}
+.card{
+  position:relative; max-width:920px; margin:0 auto; overflow:hidden;
+  padding:26px 18px 42px; border-radius:38px; text-align:center;
+  background:rgba(255,255,255,.8); backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.95);
+  box-shadow:0 28px 90px rgba(82,47,69,.22);
+}
+.card:before{content:"";position:absolute;inset:10px;border:1px solid rgba(166,98,128,.22);border-radius:30px;pointer-events:none}
+.kicker{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#a66a85}
+h1{margin:7px 0 0;color:var(--wine);font:400 68px/1 "Great Vibes",cursive}
+.subtitle{font:600 26px/1.3 "Playfair Display",serif;color:#6e475a;margin:4px 0 20px}
+.heart-line{color:#bd7495;letter-spacing:9px;font-size:22px;margin:13px 0 18px}
+
+.photo-wrap{
+  max-width:760px; margin:0 auto; padding:7px; border-radius:30px;
+  background:linear-gradient(135deg,#fff,#ebc1d5,#fff0c9,#fff);
+  box-shadow:0 18px 48px rgba(76,52,65,.2);
+}
+.photo-wrap img{display:block;width:100%;border-radius:23px;max-height:690px;object-fit:cover}
+
+.letter{
+  max-width:740px; margin:26px auto 0; padding:24px 20px;
+  border-radius:24px;
+  background:linear-gradient(135deg,rgba(255,249,246,.96),rgba(255,240,246,.96));
+  border:1px solid #ecd2dd;
+  box-shadow:0 10px 28px rgba(102,61,82,.08);
+}
+.letter-title{font:400 38px "Great Vibes",cursive;color:var(--rose);margin-bottom:8px}
+.letter p{margin:10px auto;max-width:660px;font:500 17px/1.85 "Playfair Display",serif;color:#6b4b59}
+.signature{margin-top:14px;font:400 34px "Great Vibes",cursive;color:var(--wine)}
+
+.question{
+  position:relative; margin:25px auto 0; max-width:740px; min-height:320px;
+  padding:26px 18px 38px; border-radius:28px; overflow:hidden;
+  background:rgba(255,255,255,.74); border:1px solid rgba(215,175,191,.7);
+  box-shadow:inset 0 0 40px rgba(239,208,219,.18),0 12px 30px rgba(90,55,75,.08);
+}
+.question h2{margin:0;color:#7c3858;font:400 53px/1 "Great Vibes",cursive}
+.question-note{font:500 16px "Playfair Display",serif;margin-top:7px}
+.button-area{
+  position:relative; width:min(580px,96%); height:145px; margin:18px auto 0;
+  border-radius:24px;
+}
+.choice{
+  position:absolute; top:38px; min-width:150px; padding:14px 28px;
+  border:0; border-radius:999px; color:#fff; font-weight:600; cursor:pointer;
+  box-shadow:0 12px 24px rgba(87,45,67,.17); transition:left .22s ease,top .22s ease,transform .2s;
+}
+#yesBtn{left:19%;background:linear-gradient(135deg,#b44370,#d66c92)}
+#noBtn{left:58%;background:linear-gradient(135deg,#8e7c85,#6f6269)}
+.choice:hover{transform:scale(1.04)}
+.hint{font-size:12px;color:#a07182;margin-top:5px}
+
+#planner{display:none;max-width:760px;margin:26px auto 0}
+#planner.show{display:block;animation:fadeUp .8s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.planner{
+  padding:25px 20px; border-radius:28px;
+  background:linear-gradient(135deg,#fffaf7,#fff1f6);
+  border:1px solid #e8c5d4; box-shadow:0 14px 35px rgba(99,59,81,.12);
+}
+.planner-title{font:400 46px "Great Vibes",cursive;color:#8d4464}
+.planner-sub{font:500 15px "Playfair Display",serif;margin:3px 0 20px}
+.inputs{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{text-align:left}
+.field label{display:block;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:#9e7182;margin:0 0 7px 4px}
+.field input{
+  width:100%;padding:13px 14px;border-radius:14px;border:1px solid #dfc2ce;
+  background:#fff;color:#553f4a;font:500 15px Poppins,sans-serif;outline:none;
+}
+.field input:focus{border-color:#b87390;box-shadow:0 0 0 3px rgba(184,115,144,.12)}
+.confirm{
+  margin-top:19px;padding:13px 28px;border:0;border-radius:999px;
+  background:linear-gradient(135deg,#9e456a,#cc6d91);color:#fff;font-weight:600;cursor:pointer;
+  box-shadow:0 10px 22px rgba(158,69,106,.22)
+}
+.venue{
+  margin-top:18px;padding:15px 18px;border-radius:18px;background:rgba(255,255,255,.75);
+  border:1px solid #ecd3dd
+}
+.venue strong{font:600 20px "Playfair Display",serif;color:#714659}
+.venue span{display:block;margin-top:4px;font-size:13px;color:#886f79}
+
+#accepted{display:none}
+#accepted.show{display:block;margin:24px auto 0;max-width:740px;animation:fadeUp .8s ease}
+.accepted-card{
+ padding:26px 20px;border-radius:26px;color:#fff;
+ background:linear-gradient(135deg,#7c3c5c,#b25879);
+ box-shadow:0 17px 42px rgba(97,45,70,.23)
+}
+.accepted-title{font:400 45px "Great Vibes",cursive}
+#choiceText{font:500 16px/1.7 "Playfair Display",serif;margin:8px auto;max-width:620px}
+.music-bar{
+  position:fixed;right:17px;bottom:17px;z-index:20;width:42px;height:42px;border-radius:50%;
+  border:1px solid #e5ccd7;background:rgba(255,255,255,.92);box-shadow:0 8px 20px rgba(76,47,65,.16);
+  cursor:pointer;font-size:17px
+}
+.floating{position:fixed;top:-30px;z-index:9;pointer-events:none;animation:fall linear forwards;opacity:.7}
+@keyframes fall{to{transform:translateY(110vh) rotate(480deg);opacity:.08}}
+
+@media(max-width:650px){
+  .opening-title{font-size:56px}.opening-sub{font-size:21px}
+  h1{font-size:56px}.subtitle{font-size:23px}.question h2{font-size:45px}
+  .inputs{grid-template-columns:1fr}.button-area{height:170px}
+  #yesBtn{left:50%;transform:translateX(-50%);top:22px}
+  #noBtn{left:50%;transform:translateX(-50%);top:95px}
+  .choice:hover{transform:translateX(-50%) scale(1.04)}
+}
+</style>
+</head>
+<body>
+
+<div id="opening">
+  <div class="opening-box">
+    <div class="opening-small">Just one little question for you...</div>
+    <div class="opening-title">For My Favourite Person ❤️</div>
+    <div class="opening-sub">A tiny surprise, made with a very big heart.</div>
+    <button class="enter" onclick="enterInvitation()">✨ Open Your Surprise ✨</button>
+  </div>
+</div>
+
+<main class="page">
+<section class="card">
+  <div class="kicker">A little corner of my heart</div>
+  <h1>One More Beautiful Evening?</h1>
+  <div class="subtitle">Shall we make a dinner date of it? ❤️</div>
+  <div class="heart-line">✦ ♥ ✦</div>
+
+  <div class="photo-wrap">
+    <img src="our-photo.png" alt="Us together">
+  </div>
+
+  <div class="letter">
+    <div class="letter-title">To the girl I miss...</div>
+    <p>
+      I don't think I can ever put into words exactly how much I love you.
+      I miss your smile when you're not around, your voice when the day feels too quiet,
+      and those little moments with you that somehow become my favourite memories.
+    </p>
+    <p>
+      You are not just someone I love — you are the person I look forward to,
+      the person I want beside me when I have good news, bad days, silly stories,
+      and all the ordinary moments that become extraordinary simply because you're there.
+    </p>
+    <p>
+      So this isn't just a dinner invitation. It's my little way of saying:
+      <b>I miss you. I love you. And I want more time with you. ❤️</b>
+    </p>
+    <div class="signature">Always yours, Sonu ❤️</div>
+  </div>
+
+  <div class="question" id="question">
+    <div class="question-note">I have one very important question...</div>
+    <h2>Will you go on a dinner date with me?</h2>
+    <div class="button-area" id="buttonArea">
+      <button class="choice" id="yesBtn" onclick="sayYes()">💗 Yes, I’d love to</button>
+      <button class="choice" id="noBtn">🙈 No</button>
+    </div>
+    <div class="hint">P.S. The “No” button is a little shy. 😉</div>
+  </div>
+
+  <section id="planner">
+    <div class="planner">
+      <div class="planner-title">Then let's pick our moment ❤️</div>
+      <div class="planner-sub">Choose one date and time that belongs just to us.</div>
+
+      <div class="inputs">
+        <div class="field">
+          <label for="date">Our Date</label>
+          <input id="date" type="date">
+        </div>
+        <div class="field">
+          <label for="time">Our Time</label>
+          <input id="time" type="time">
+        </div>
+      </div>
+
+      <div class="venue">
+        📍 <strong>The Royal Imperial Hotel</strong>
+        <span>Near / opposite Kachahri Station Road, Chapra, Bihar</span>
+      </div>
+
+      <button class="confirm" onclick="confirmDate()">💞 Confirm Our Dinner Date</button>
+    </div>
+  </section>
+
+  <section id="accepted">
+    <div class="accepted-card">
+      <div class="accepted-title">It's a Date! 💕</div>
+      <div id="choiceText"></div>
+      <div>I'll be counting the moments until I get to see you again. ❤️</div>
+    </div>
+  </section>
+</section>
+</main>
+
+<audio id="music" src="background-music.mp3" loop preload="auto"></audio>
+<button class="music-bar" id="musicBtn" onclick="toggleMusic()" aria-label="Mute background music">🔊</button>
+
+<script>
+const opening = document.getElementById('opening');
+const music = document.getElementById('music');
+const noBtn = document.getElementById('noBtn');
+const buttonArea = document.getElementById('buttonArea');
+const planner = document.getElementById('planner');
+
+function enterInvitation(){
+  opening.classList.add('hide');
+  music.volume = 0.24;
+  music.play().catch(()=>{});
+  makeFloatingHearts();
+}
+
+function toggleMusic(){
+  music.muted = !music.muted;
+  document.getElementById('musicBtn').textContent = music.muted ? '🔇' : '🔊';
+}
+
+function moveNoButton(e){
+  if(e) e.preventDefault();
+  const area = buttonArea.getBoundingClientRect();
+  const btn = noBtn.getBoundingClientRect();
+  const maxX = Math.max(0, area.width - btn.width - 8);
+  const maxY = Math.max(0, area.height - btn.height - 8);
+  let x = Math.random() * maxX;
+  let y = Math.random() * maxY;
+
+  // On small screens avoid putting it directly over the Yes button.
+  if(window.innerWidth < 650){
+    x = Math.random() * maxX;
+    y = 92 + Math.random() * Math.max(0, maxY - 92);
+  }
+  noBtn.style.left = x + 'px';
+  noBtn.style.top = y + 'px';
+  noBtn.style.transform = 'none';
+  noBtn.textContent = ['🙈 No','😜 Catch me','🥹 Try again','💨 Too slow!','😏 Nope'][Math.floor(Math.random()*5)];
+}
+
+noBtn.addEventListener('mouseenter', moveNoButton);
+noBtn.addEventListener('mousemove', moveNoButton);
+noBtn.addEventListener('touchstart', moveNoButton, {passive:false});
+noBtn.addEventListener('click', moveNoButton);
+
+function sayYes(){
+  planner.classList.add('show');
+  document.getElementById('question').style.opacity = '.65';
+  document.getElementById('question').style.pointerEvents = 'none';
+
+  const today = new Date();
+  const min = new Date(today.getTime() - today.getTimezoneOffset()*60000).toISOString().slice(0,10);
+  const dateInput = document.getElementById('date');
+  dateInput.min = min;
+
+  // Open the calendar immediately after Yes where supported.
+  setTimeout(()=>{ try { dateInput.showPicker(); } catch(e) {} }, 300);
+  planner.scrollIntoView({behavior:'smooth',block:'center'});
+  burstHearts();
+}
+
+function confirmDate(){
+  const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+
+  if(!date || !time){
+    alert('Choose both our date and our time first ❤️');
+    return;
+  }
+
+  const d = new Date(date + 'T00:00:00');
+  const formattedDate = d.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  let formattedTime = time;
+  if(time){
+    const parts = time.split(':');
+    const t = new Date();
+    t.setHours(+parts[0],+parts[1]);
+    formattedTime = t.toLocaleTimeString('en-IN',{hour:'numeric',minute:'2-digit'});
+  }
+
+  document.getElementById('choiceText').innerHTML =
+    `Our dinner date is set for <b>${formattedDate}</b> at <b>${formattedTime}</b>.<br>
+     📍 The Royal Imperial Hotel — Chapra<br>
+     And honestly... I already know I'll be missing you before the evening even begins. ❤️`;
+
+  document.getElementById('accepted').classList.add('show');
+  document.getElementById('accepted').scrollIntoView({behavior:'smooth',block:'center'});
+  burstHearts();
+}
+
+function burstHearts(){
+  const symbols=['♥','♡','✨','🌸','💗'];
+  for(let i=0;i<22;i++){
+    const p=document.createElement('span');
+    p.className='floating';
+    p.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    p.style.left=(Math.random()*100)+'vw';
+    p.style.fontSize=(12+Math.random()*14)+'px';
+    p.style.animationDuration=(4.5+Math.random()*5)+'s';
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),10000);
+  }
+}
+
+function makeFloatingHearts(){
+  burstHearts();
+  setInterval(()=>burstHearts(),9000);
+}
+</script>
+</body>
+</html>
